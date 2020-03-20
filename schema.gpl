@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CreateWorkout {
+  id: Int!
+  title: String!
+  phase: String!
+  warmup: String!
+  program: String!
+  completed: Boolean!
+  notes: String
+}
+
+type Mutation {
+  createWorkout(data: WorkoutInput!): CreateWorkout!
+  deleteWorkout(id: String!): Boolean!
+}
+
+type Query {
+  workouts: [CreateWorkout!]!
+  workout(id: String!): CreateWorkout!
+}
+
+input WorkoutInput {
+  title: String!
+  phase: String!
+  warmup: String!
+  program: String!
+  completed: Boolean!
+  notes: String
+}

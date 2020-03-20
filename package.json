@@ -24,15 +24,18 @@
     "@nestjs/core": "^7.0.3",
     "@nestjs/graphql": "^7.0.10",
     "@nestjs/platform-express": "^7.0.3",
+    "@nestjs/sequelize": "^0.1.0",
     "@nestjs/typeorm": "^7.0.0",
     "apollo-server-express": "^2.11.0",
     "graphql": "^14.6.0",
     "graphql-tools": "^4.0.7",
+    "mysql2": "^2.1.0",
     "pg": "^7.18.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.4",
-    "type-graphql": "^0.17.6",
+    "sequelize": "^5.21.5",
+    "sequelize-typescript": "^1.1.0",
     "typeorm": "^0.2.24"
   },
   "devDependencies": {
@@ -54,6 +57,7 @@
     "ts-jest": "25.2.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.0",
+    "tsc-watch": "2.2.1",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.4"
   },
