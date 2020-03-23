@@ -14,7 +14,7 @@ export class WorkoutResolver {
   }
 
   @Query(() => CreateWorkout, { name: 'workout' })
-  async getWorkout(@Args('id') id: string) {
+  async getWorkout(@Args('id') id: number) {
     return this.workoutService.getWorkout(id);
   }
 
@@ -23,8 +23,8 @@ export class WorkoutResolver {
     return this.workoutService.createWorkout(data);
   }
 
-  @Mutation(() => Boolean)
-  async deleteWorkout(@Args('id') id: string) {
+  @Mutation(() => String)
+  async deleteWorkout(@Args('id') id: number) {
     return this.workoutService.deleteWorkout(id);
   }
 }

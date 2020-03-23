@@ -8,18 +8,18 @@ type CreateWorkout {
   phase: String!
   warmup: String!
   program: String!
-  completed: Boolean!
+  completed: Boolean
   notes: String
 }
 
 type Mutation {
   createWorkout(data: WorkoutInput!): CreateWorkout!
-  deleteWorkout(id: String!): Boolean!
+  deleteWorkout(id: Float!): String!
 }
 
 type Query {
   workouts: [CreateWorkout!]!
-  workout(id: String!): CreateWorkout!
+  workout(id: Float!): CreateWorkout!
 }
 
 input WorkoutInput {
@@ -27,6 +27,6 @@ input WorkoutInput {
   phase: String!
   warmup: String!
   program: String!
-  completed: Boolean!
+  completed: Boolean
   notes: String
 }

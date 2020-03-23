@@ -1,9 +1,11 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { MinLength } from 'class-validator';
 
 @ObjectType()
 export class CreateWorkout {
-  @Field(type => Int)
-  readonly id?: string;
+  @Field(() => Int)
+  @MinLength(3)
+  readonly id?: number;
 
   @Field()
   readonly title: string;
@@ -17,9 +19,9 @@ export class CreateWorkout {
   @Field()
   readonly program: string;
 
-  @Field()
-  readonly completed: boolean;
+  @Field({ nullable: true })
+  readonly completed?: boolean;
 
   @Field({ nullable: true })
-  readonly notes: string;
+  readonly notes?: string;
 }

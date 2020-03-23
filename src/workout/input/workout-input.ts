@@ -14,7 +14,7 @@ export class WorkoutInput {
   @Field()
   readonly program: string;
 
-  @Field()
+  @Field({ nullable: true })
   readonly completed: boolean;
 
   @Field({ nullable: true })

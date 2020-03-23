@@ -30,12 +30,12 @@ export class WorkoutService {
     return await this.WorkoutRepo.find();
   }
 
-  async getWorkout(id: string): Promise<Workout> {
+  async getWorkout(id: number): Promise<Workout> {
     return await this.WorkoutRepo.findOne(id);
   }
 
-  async deleteWorkout(id: string): Promise<boolean> {
+  async deleteWorkout(id: number): Promise<string> {
     await this.WorkoutRepo.delete(id);
-    return true;
+    return 'Successfully deleted workout';
   }
 }

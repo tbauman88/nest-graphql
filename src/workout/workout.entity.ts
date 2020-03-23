@@ -2,7 +2,8 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Workout {
-  @PrimaryGeneratedColumn() id: string;
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 
   @Column()
   title: string;
@@ -16,9 +17,9 @@ export class Workout {
   @Column()
   program: string;
 
-  @Column('boolean')
+  @Column({ type: 'boolean', default: false })
   completed: boolean;
 
-  @Column('text')
-  notes: string | null;
+  @Column({ type: 'text', default: null })
+  notes: string;
 }
