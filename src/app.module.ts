@@ -19,7 +19,12 @@ import { WorkoutModule } from './workout/workkout.module';
         autoLoadEntities: true,
       }),
     }),
-    GraphQLModule.forRoot({ autoSchemaFile: 'schema.gpl' }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: 'schema.gpl',
+      buildSchemaOptions: {
+        dateScalarMode: 'isoDate',
+      },
+    }),
     WorkoutModule,
   ],
   controllers: [AppController],

@@ -1,10 +1,8 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { MinLength } from 'class-validator';
+import { Field, GraphQLISODateTime, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class CreateWorkout {
   @Field(() => Int)
-  @MinLength(3)
   readonly id?: number;
 
   @Field()
@@ -24,4 +22,10 @@ export class CreateWorkout {
 
   @Field({ nullable: true })
   readonly notes?: string;
+
+  @Field(() => GraphQLISODateTime)
+  readonly created_at?: Date;
+
+  @Field(() => GraphQLISODateTime)
+  readonly updated_at?: Date;
 }
