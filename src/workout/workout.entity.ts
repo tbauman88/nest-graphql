@@ -17,8 +17,8 @@ export class Workout {
   @Column()
   phase: string;
 
-  @Column({ type: 'jsonb' })
-  warmup: any;
+  @Column({ type: 'simple-array', default: [] })
+  warmup: string[];
 
   @Column()
   program: string;

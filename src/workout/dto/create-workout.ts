@@ -11,8 +11,8 @@ export class CreateWorkout {
   @Field()
   readonly phase: string;
 
-  @Field()
-  readonly warmup: string;
+  @Field(() => [String])
+  readonly warmup: string[];
 
   @Field()
   readonly program: string;

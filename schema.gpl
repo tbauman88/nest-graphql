@@ -6,7 +6,7 @@ type CreateWorkout {
   id: Int!
   title: String!
   phase: String!
-  warmup: String!
+  warmup: [String!]!
   program: String!
   completed: Boolean
   notes: String
@@ -32,7 +32,7 @@ type Query {
 input WorkoutInput {
   title: String!
   phase: String!
-  warmup: String!
+  warmup: [String!]!
   program: String!
   completed: Boolean
   notes: String

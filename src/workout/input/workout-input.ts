@@ -1,5 +1,4 @@
 import { Field, InputType } from '@nestjs/graphql';
-
 @InputType()
 export class WorkoutInput {
   @Field()
@@ -8,8 +7,8 @@ export class WorkoutInput {
   @Field()
   readonly phase: string;
 
-  @Field()
-  readonly warmup: string;
+  @Field(() => [String])
+  readonly warmup: string[];
 
   @Field()
   readonly program: string;
