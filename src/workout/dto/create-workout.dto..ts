@@ -5,15 +5,27 @@ import {
   Int,
   ObjectType,
 } from '@nestjs/graphql';
-import { PrimaryGeneratedColumn } from 'typeorm';
-import { IWarmup } from '../warmup.interface';
+import { IMovement } from '../interfaces/movement.interface';
+import { IWarmup } from '../interfaces/warmup.interface';
 
 @ObjectType()
 @InputType('WarmupInput')
 export class Warmup implements IWarmup {
-  @PrimaryGeneratedColumn() id: number;
   @Field() name: string;
   @Field() videoUrl: string;
+  @Field({ defaultValue: null }) notes?: string;
+}
+
+@ObjectType()
+@InputType('MovementInput')
+export class Movement implements IMovement {
+  @Field() name: string;
+  @Field() videoUrl: string;
+  @Field() tempo: string;
+  @Field() reps: string;
+  @Field() rest: number;
+  @Field({ defaultValue: null }) sets: number;
+  @Field({ defaultValue: null }) notes?: string;
 }
 
 @ObjectType()
@@ -29,6 +41,12 @@ export class CreateWorkout {
 
   @Field(() => [Warmup])
   readonly warmup: IWarmup[];
+
+  @Field(() => [Movement])
+  readonly strength_movements: IMovement[];
+
+  @Field(() => [Movement])
+  readonly muscle_endurance: IMovement[];
 
   @Field()
   readonly program: string;
