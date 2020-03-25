@@ -3,28 +3,14 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { configService } from './config/config.service';
 import { WorkoutModule } from './workout/workkout.module';
-
 @Module({
   imports: [
-    TypeOrmModule.forRootAsync({
-      useFactory: () => ({
-        type: 'postgres',
-        host: 'localhost',
-        port: 5432,
-        username: 'tylerbauman',
-        password: 'fEpZjjUVSTvXe2XT',
-        database: 'pokemon_db',
-        synchronize: false,
-        logging: false,
-        autoLoadEntities: true,
-      }),
-    }),
+    TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gpl',
-      buildSchemaOptions: {
-        dateScalarMode: 'isoDate',
-      },
+      buildSchemaOptions: { dateScalarMode: 'isoDate' },
     }),
     WorkoutModule,
   ],

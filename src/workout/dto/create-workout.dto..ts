@@ -1,4 +1,20 @@
-import { Field, GraphQLISODateTime, Int, ObjectType } from '@nestjs/graphql';
+import {
+  Field,
+  GraphQLISODateTime,
+  InputType,
+  Int,
+  ObjectType,
+} from '@nestjs/graphql';
+import { PrimaryGeneratedColumn } from 'typeorm';
+import { IWarmup } from '../warmup.interface';
+
+@ObjectType()
+@InputType('WarmupInput')
+export class Warmup implements IWarmup {
+  @PrimaryGeneratedColumn() id: number;
+  @Field() name: string;
+  @Field() videoUrl: string;
+}
 
 @ObjectType()
 export class CreateWorkout {
@@ -11,8 +27,8 @@ export class CreateWorkout {
   @Field()
   readonly phase: string;
 
-  @Field(() => [String])
-  readonly warmup: string[];
+  @Field(() => [Warmup])
+  readonly warmup: IWarmup[];
 
   @Field()
   readonly program: string;
