@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateWorkout } from './dto/create-workout';
+import { CreateWorkout } from './dto/create-workout.dto.';
 import { Workout } from './workout.entity';
 
 @Injectable()
@@ -27,7 +27,8 @@ export class WorkoutService {
   }
 
   async getWorkouts(): Promise<Workout[]> {
-    return await this.WorkoutRepo.find();
+    const workouts = await this.WorkoutRepo.find();
+    return workouts;
   }
 
   async getWorkout(id: number): Promise<Workout> {

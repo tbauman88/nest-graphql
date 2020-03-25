@@ -1,4 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql';
+import { Warmup } from '../dto/create-workout.dto.';
+import { IWarmup } from '../warmup.interface';
+
 @InputType()
 export class WorkoutInput {
   @Field()
@@ -7,8 +10,8 @@ export class WorkoutInput {
   @Field()
   readonly phase: string;
 
-  @Field(() => [String])
-  readonly warmup: string[];
+  @Field(() => [Warmup])
+  readonly warmup: IWarmup[];
 
   @Field()
   readonly program: string;

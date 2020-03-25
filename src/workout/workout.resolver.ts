@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CreateWorkout } from './dto/create-workout';
-import { WorkoutInput } from './input/workout-input';
+import { CreateWorkout } from './dto/create-workout.dto.';
+import { WorkoutInput } from './input/workout.input';
 import { Workout } from './workout.entity';
 import { WorkoutService } from './workout.service';
 

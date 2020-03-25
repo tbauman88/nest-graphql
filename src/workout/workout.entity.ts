@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { IWarmup } from './warmup.interface';
 
 @Entity()
 export class Workout {
@@ -17,8 +18,8 @@ export class Workout {
   @Column()
   phase: string;
 
-  @Column({ type: 'simple-array', default: [] })
-  warmup: string[];
+  @Column({ type: 'jsonb' })
+  warmup: IWarmup[];
 
   @Column()
   program: string;
