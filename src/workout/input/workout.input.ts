@@ -1,6 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { Warmup } from '../dto/create-workout.dto.';
-import { IWarmup } from '../warmup.interface';
+import { Movement, Warmup } from '../dto/create-workout.dto.';
+import { IMovement } from '../interfaces/movement.interface';
+import { IWarmup } from '../interfaces/warmup.interface';
 
 @InputType()
 export class WorkoutInput {
@@ -12,6 +13,12 @@ export class WorkoutInput {
 
   @Field(() => [Warmup])
   readonly warmup: IWarmup[];
+
+  @Field(() => [Movement])
+  readonly strength_movements: IMovement[];
+
+  @Field(() => [Movement])
+  readonly muscle_endurance: IMovement[];
 
   @Field()
   readonly program: string;

@@ -5,7 +5,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { IWarmup } from './warmup.interface';
+import { IMovement } from './interfaces/movement.interface';
+import { IWarmup } from './interfaces/warmup.interface';
 
 @Entity()
 export class Workout {
@@ -18,8 +19,14 @@ export class Workout {
   @Column()
   phase: string;
 
-  @Column({ type: 'jsonb' })
+  @Column({ type: 'json', default: [] })
   warmup: IWarmup[];
+
+  @Column({ type: 'json', default: [] })
+  strength_movements: IMovement[];
+
+  @Column({ type: 'json', default: [] })
+  muscle_endurance: IMovement[];
 
   @Column()
   program: string;

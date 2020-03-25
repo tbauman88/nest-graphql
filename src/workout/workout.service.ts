@@ -18,6 +18,8 @@ export class WorkoutService {
     workout.phase = data.phase;
     workout.warmup = data.warmup;
     workout.program = data.program;
+    workout.strength_movements = data.strength_movements;
+    workout.muscle_endurance = data.muscle_endurance;
     workout.completed = data.completed;
     workout.notes = data.notes;
 

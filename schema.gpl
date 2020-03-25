@@ -7,6 +7,8 @@ type CreateWorkout {
   title: String!
   phase: String!
   warmup: [Warmup!]!
+  strength_movements: [Movement!]!
+  muscle_endurance: [Movement!]!
   program: String!
   completed: Boolean
   notes: String
@@ -18,6 +20,26 @@ type CreateWorkout {
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type Movement {
+  name: String!
+  videoUrl: String!
+  tempo: String!
+  reps: String!
+  rest: Float!
+  sets: Float
+  notes: String
+}
+
+input MovementInput {
+  name: String!
+  videoUrl: String!
+  tempo: String!
+  reps: String!
+  rest: Float!
+  sets: Float = null
+  notes: String = null
+}
 
 type Mutation {
   createWorkout(data: WorkoutInput!): CreateWorkout!
@@ -32,17 +54,21 @@ type Query {
 type Warmup {
   name: String!
   videoUrl: String!
+  notes: String
 }
 
 input WarmupInput {
   name: String!
   videoUrl: String!
+  notes: String = null
 }
 
 input WorkoutInput {
   title: String!
   phase: String!
   warmup: [WarmupInput!]!
+  strength_movements: [MovementInput!]!
+  muscle_endurance: [MovementInput!]!
   program: String!
   completed: Boolean
   notes: String
