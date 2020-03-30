@@ -26,8 +26,8 @@ type Movement {
   videoUrl: String!
   tempo: String!
   reps: String!
-  rest: Float!
-  sets: Float
+  rest: String!
+  sets: String
   notes: String
 }
 
@@ -36,13 +36,14 @@ input MovementInput {
   videoUrl: String!
   tempo: String!
   reps: String!
-  rest: Float!
-  sets: Float = null
+  rest: String!
+  sets: String = null
   notes: String = null
 }
 
 type Mutation {
   createWorkout(data: WorkoutInput!): CreateWorkout!
+  updateWorkout(workout: WorkoutInput!, id: Float!): CreateWorkout!
   deleteWorkout(id: Float!): String!
 }
 

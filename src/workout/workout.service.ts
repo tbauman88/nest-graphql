@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateWorkout } from './dto/create-workout.dto.';
+import { WorkoutInput } from './input/workout.input';
 import { Workout } from './workout.entity';
 
 @Injectable()
@@ -35,6 +36,23 @@ export class WorkoutService {
 
   async getWorkout(id: number): Promise<Workout> {
     return await this.WorkoutRepo.findOne(id);
+  }
+
+  async updateWorkout(id: number, input: WorkoutInput): Promise<Workout> {
+    const workout = await this.WorkoutRepo.findOne({ where: { id } });
+
+    workout.title = input.title;
+    workout.phase = input.phase;
+    workout.warmup = input.warmup;
+    workout.program = input.program;
+    workout.strength_movements = input.strength_movements;
+    workout.muscle_endurance = input.muscle_endurance;
+    workout.completed = input.completed;
+    workout.notes = input.notes;
+
+    await this.WorkoutRepo.save(workout);
+
+    return workout;
   }
 
   async deleteWorkout(id: number): Promise<string> {
