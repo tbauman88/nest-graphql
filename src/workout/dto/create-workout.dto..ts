@@ -23,8 +23,8 @@ export class Movement implements IMovement {
   @Field() videoUrl: string;
   @Field() tempo: string;
   @Field() reps: string;
-  @Field() rest: number;
-  @Field({ defaultValue: null }) sets: number;
+  @Field() rest: string;
+  @Field({ defaultValue: null }) sets: string;
   @Field({ defaultValue: null }) notes?: string;
 }
 

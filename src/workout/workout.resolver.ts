@@ -23,6 +23,14 @@ export class WorkoutResolver {
     return this.workoutService.createWorkout(data);
   }
 
+  @Mutation(() => CreateWorkout)
+  async updateWorkout(
+    @Args('id') id: number,
+    @Args('workout') workout: WorkoutInput,
+  ) {
+    return this.workoutService.updateWorkout(id, workout);
+  }
+
   @Mutation(() => String)
   async deleteWorkout(@Args('id') id: number) {
     return this.workoutService.deleteWorkout(id);

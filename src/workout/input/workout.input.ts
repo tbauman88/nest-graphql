@@ -6,26 +6,26 @@ import { IWarmup } from '../interfaces/warmup.interface';
 @InputType()
 export class WorkoutInput {
   @Field()
-  readonly title: string;
+  title: string;
 
   @Field()
-  readonly phase: string;
+  phase: string;
 
   @Field(() => [Warmup])
-  readonly warmup: IWarmup[];
+  warmup: IWarmup[];
 
   @Field(() => [Movement])
-  readonly strength_movements: IMovement[];
+  strength_movements: IMovement[];
 
   @Field(() => [Movement])
-  readonly muscle_endurance: IMovement[];
+  muscle_endurance: IMovement[];
 
   @Field()
-  readonly program: string;
+  program: string;
 
   @Field({ nullable: true })
-  readonly completed: boolean;
+  completed: boolean;
 
   @Field({ nullable: true })
-  readonly notes: string;
+  notes: string;
 }

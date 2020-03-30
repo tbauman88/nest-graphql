@@ -3,7 +3,7 @@ export interface IMovement {
   videoUrl: string;
   tempo: string;
   reps: string;
-  rest: number;
-  sets: number;
+  rest: string;
+  sets: string;
   notes?: string;
 }
